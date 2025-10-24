@@ -4,26 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
   </head>
-  <body>
+  <body class="">
     <!-- nav bar -->
-    <nav>
+    <nav
+      class="sticky top-0 backdrop-blur-md flex items-center justify-around bg-gray-100/80 p-4"
+    >
       <!-- Start:: left section -->
-      <div>
-        <h1 id="name">Mohammed Baqer</h1>
+      <div class="relative group">
+        <h1 on id="name" class="text-4xl font-bold text-gray-800">
+          Mohammed Baqer
+        </h1>
+
+        <div
+          class="opacity-0 group-hover:opacity-100 ease-in duration-100 absolute -bottom-18 left-18 bg-black text-white p-4 rounded-md"
+        >
+          Software Eng. @ QiCard
+        </div>
       </div>
       <!-- End:: left section -->
 
       <!-- Start:: right section -->
-      <div>
-        <ul>
-          <a href="#about">About me</a>
-          <a href="#experience">Experience</a>
-          <a href="#education">Education</a>
-          <a href="#projects">Projects</a>
-        </ul>
+
+      <ul class="hidden md:flex gap-4">
+        <a class="font-medium hover:text-red-500 hover:underline" href="#about"
+          >About me</a
+        >
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+      </ul>
+
+      <div class="block md:hidden">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-hamburger-icon lucide-hamburger"
+        >
+          <path d="M12 16H4a2 2 0 1 1 0-4h16a2 2 0 1 1 0 4h-4.25" />
+          <path d="M5 12a2 2 0 0 1-2-2 9 7 0 0 1 18 0 2 2 0 0 1-2 2" />
+          <path
+            d="M5 16a2 2 0 0 0-2 2 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 2 2 0 0 0-2-2q0 0 0 0"
+          />
+          <path d="m6.67 12 6.13 4.6a2 2 0 0 0 2.8-.4l3.15-4.2" />
+        </svg>
       </div>
+
       <!-- end:: right section -->
     </nav>
 
@@ -37,7 +72,8 @@
         />
       </div>
       <div class="hero__content">
-        <h2>Welcome to My Portfolio</h2>
+        <h2 class="pt-[16px] bg-red-500">Welcome to My Portfolio</h2>
+        <h2 class="pt-4 bg-blue-500">Welcome to My Portfolio</h2>
         <p class="hero__content__p">
           Hi, I'm Mohammed Baqer, a passionate web developer.
         </p>
@@ -170,7 +206,123 @@
 
     <!-- projects -->
     <section>
-      <h1 id="projects">Projects</h1>
+      <div class="bg-gray-100 px-2 py-10 my-10">
+        <h1 id="projects" class="text-4xl font-bold ps-22">Projects</h1>
+
+        <article
+          class="group hover:scale-110 hover:shadow-lg cursor-pointer duration-300 ease-in mx-auto my-10 flex max-w-md flex-col rounded-2xl bg-white px-4 shadow md:max-w-5xl md:flex-row md:items-center"
+        >
+          <div
+            class="w-full group-hover:w-0 duration-500 ease-in shrink-0 my-4 md:mr-8 md:max-w-sm"
+          >
+            <img
+              class="rounded-2xl"
+              src="https://images.unsplash.com/photo-1663287695452-bf59337d8746?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHw%3D&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60"
+              alt=""
+            />
+          </div>
+          <div class="py-4 sm:py-8">
+            <div
+              class="flex gap-2 mb-6 block text-2xl font-medium text-gray-700"
+            >
+              <p class="hidden group-hover:block">Click me!</p>
+
+              <a href="#" class="">Open Gen Photo Generator</a>
+            </div>
+            <p class="mb-6 text-gray-500">
+              Build auto gen image using next js and open ai api. This is a
+              simple project that allows users to generate images based on their
+              prompts.
+            </p>
+            <div class="flex items-center">
+              <img
+                class="h-10 w-10 rounded-full object-cover"
+                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880"
+                alt="Simon Lewis"
+              />
+              <p class="ml-4 w-56">
+                <strong class="block font-medium text-gray-700"
+                  >Mohammed Baqers</strong
+                >
+                <span class="text-sm text-gray-400">Jun 26, 2022</span>
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article
+          class="mx-auto my-10 flex max-w-md flex-col rounded-2xl bg-white px-4 shadow md:max-w-5xl md:flex-row md:items-center"
+        >
+          <div class="shrink-0 my-4 md:mr-8 md:max-w-sm">
+            <img
+              class="rounded-2xl"
+              src="https://images.unsplash.com/photo-1663287695452-bf59337d8746?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHw%3D&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60"
+              alt=""
+            />
+          </div>
+          <div class="py-4 sm:py-8">
+            <div>
+              <a href="#" class="mb-6 block text-2xl font-medium text-gray-700"
+                >Open Gen Photo Generator</a
+              >
+            </div>
+            <p class="mb-6 text-gray-500">
+              Build auto gen image using next js and open ai api. This is a
+              simple project that allows users to generate images based on their
+              prompts.
+            </p>
+            <div class="flex items-center">
+              <img
+                class="h-10 w-10 rounded-full object-cover"
+                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880"
+                alt="Simon Lewis"
+              />
+              <p class="ml-4 w-56">
+                <strong class="block font-medium text-gray-700"
+                  >Mohammed Baqers</strong
+                >
+                <span class="text-sm text-gray-400">Jun 26, 2022</span>
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article
+          class="mx-auto my-10 flex max-w-md flex-col rounded-2xl bg-white px-4 shadow md:max-w-5xl md:flex-row md:items-center"
+        >
+          <div class="shrink-0 my-4 md:mr-8 md:max-w-sm">
+            <img
+              class="rounded-2xl"
+              src="https://images.unsplash.com/photo-1663287695452-bf59337d8746?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHw%3D&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=60"
+              alt=""
+            />
+          </div>
+          <div class="py-4 sm:py-8">
+            <a href="#" class="mb-6 block text-2xl font-medium text-gray-700"
+              >Open Gen Photo Generator</a
+            >
+            <p class="mb-6 text-gray-500">
+              Build auto gen image using next js and open ai api. This is a
+              simple project that allows users to generate images based on their
+              prompts.
+            </p>
+            <div class="flex items-center">
+              <img
+                class="h-10 w-10 rounded-full object-cover"
+                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=880"
+                alt="Simon Lewis"
+              />
+              <p class="ml-4 w-56">
+                <strong class="block font-medium text-gray-700"
+                  >Mohammed Baqers</strong
+                >
+                <span class="text-sm text-gray-400">Jun 26, 2022</span>
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+
       <!-- Start:: experience -->
       <section class="section">
         <div class="section__header">
@@ -232,4 +384,8 @@
 
     <footer></footer>
   </body>
+
+  <script>
+    const element = document.getElementById("name");
+  </script>
 </html>
