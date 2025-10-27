@@ -1,7 +1,7 @@
 const tempDisplay = document.querySelector("#temp");
 const resultDisplay = document.querySelector("#result");
 const historyParent = document.querySelector("ul");
-
+const clearButton = document.querySelector("#clear-all");
 const historyList = [];
 const operations = ["+", "-", "/", "*"];
 let tempInput = "0";
@@ -70,6 +70,14 @@ const scrollable = document.querySelector("#scrollable");
 function scrollToBottom() {
   scrollable.scrollTop = scrollable.scrollHeight;
 }
+function DeleteAll() {
+  tempInput = "0";
+  resultDisplay.textContent = "0";
+  historyList.length = 0;
+  historyParent.innerHTML = "";
+  _reRender();
+}
+clearButton.addEventListener("click", DeleteAll);
 
 // scroll once on page load
 scrollToBottom();

@@ -33,7 +33,7 @@
         <!-- End:: Nav -->
 
         <!-- Start:: Display -->
-        <section id="scrollable" class="overflow-y-scroll h-80 bg-zinc-800">
+        <section id="scrollable" class="overflow-y-scroll h-80 bg-zinc-900">
           <div class="flex-1 flex flex-col-reverse justify-end">
             <div class="p-5 text-white text-right text-3xl">
               = <span id="result" class="text-orange-500">0</span>
@@ -47,7 +47,7 @@
         </section>
 
         <!-- End:: Display -->
-
+        <hr class="border-gray-500" />
         <!-- Start:: Keyboard -->
         <div>
           <div class="flex items-stretch bg-zinc-900 h-24">
@@ -306,21 +306,15 @@
             <div
               class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"
             >
-              <div
-                class="rounded-full h-20 w-20 flex items-center bg-zinc-800 justify-center shadow-lg border-2 border-zinc-700 hover:border-2 hover:border-gray-500 focus:outline-none"
+              <div id="clear-all"
+                class=" rounded-full h-20 w-20 flex items-center bg-red-500 justify-center shadow-lg border-2 border-zinc-700 hover:border-2 hover:border-gray-500 focus:outline-none"
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="30"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-diff-icon lucide-diff"
-                >
+                <svg class="w-12 h-12 text-white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="AC">
+                   <text x="12" y="15" text-anchor="middle"
+                   font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial"
+                    font-size="12" font-weight="700" fill="currentColor" letter-spacing=".6">AC</text>
+                  </svg>
+
                   <path d="M12 3v14" />
                   <path d="M5 10h14" />
                   <path d="M5 21h14" />
