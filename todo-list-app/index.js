@@ -1,20 +1,28 @@
 const parent = document.querySelector("ul");
 const input = document.querySelector("input");
+const ID = () => Math.random().toString(36).substr(2, 9);
+
+
 
 let todoListState = "";
 let todoListItems = [
   {
-    id: "1",
+    id: 1,
+    title: "Dummies input",
+    isChecked: false,
+  },
+  {
+    id: 1,
     title: "Tomato",
     isChecked: true,
   },
   {
-    id: "2",
+    id: 1,
     title: "Cofee",
     isChecked: true,
   },
   {
-    id: "3",
+    id: 1,
     title: "Pizza",
     isChecked: false,
   },
@@ -35,7 +43,7 @@ const _addNewTodoItem = (title, isChecked, id) => {
 
   li.innerHTML = `
 <li
-    onclick="_toggleListItem('${id}')"
+    
             class="group cursor-pointer bg-gray-100 hover:bg-gray-200 p-2 rounded-lg duration-100 ease-in flex items-center gap-2"
           >
             <div
@@ -62,14 +70,14 @@ const _addNewTodoItem = (title, isChecked, id) => {
               </svg>
             </div>
 
-            <span class="flex-1 ${
+            <span onclick="_editExistingItemName('${id}', this.innerText)" class="flex-1 ${
               isChecked ? "line-through text-gray-400" : ""
             }">${title}</span>
 
             <div class="${
               isChecked ? "bg-green-400" : "bg-gray-200"
             } p-1  rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="${
+                <svg onclick="_toggleListItem('${id}')" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" class="${
                   isChecked ? "text-white" : "text-gray-500"
                 } lucide lucide-check-icon lucide-check"><path d="M20 6 9 17l-5-5"/></svg>
             </div>
@@ -79,12 +87,32 @@ const _addNewTodoItem = (title, isChecked, id) => {
   // Trigger re render
   parent.appendChild(li);
 };
+function _editExistingItemName(id, currentName) {
+    console.log("I am here");
+    const newName = prompt("Enter new name for the item:", currentName);
+    if (newName === null || newName.trim() === "") {
+      return; // User cancelled or entered an empty name
+    }
+    const newItems = todoListItems.map((item) => {
+      if (item.id !== id) {
+        return item;
+      }
+
+      return { ...item, title: newName };
+    });
+    todoListItems = newItems;
+
+    _reRenderItems();
+    console.log(todoListItems);
+
+}
+//display the list items
 
 function _removeListItemById(id) {
   const newItems = todoListItems.filter((item) => {
     return item.id != id;
   });
-  todoListItems = newItems;g
+  todoListItems = newItems;
 
   _reRenderItems();
 }
@@ -114,12 +142,24 @@ input.addEventListener("input", (ev) => {
   todoListState = ev.target.value;
 });
 
+input.addEventListener("input", () => {
+  console.log("input changed");
+  todoListItems.map((item) => {
+    if (item.id === 1) {
+      //don't return items with id 1
+      todoListItems = todoListItems.filter((i) => i.id !== 1);
+      _reRenderItems();
+    }
+  });
+  
+});
 // Listen for enter
 input.addEventListener("keypress", (ev) => {
   const isEnterPressed = ev.key === "Enter";
 
-  if (isEnterPressed) {
-    _addNewTodoItem(todoListState, false);
+  if (isEnterPressed && todoListState.trim() !== "") {
+    _addNewTodoItem(todoListState, false, ID());
+    todoListItems.push({ id: ID(), title: todoListState, isChecked: false });
     _resetInputValue();
   }
 });
